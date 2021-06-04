@@ -1,0 +1,17 @@
+FROM fedora-minimal
+
+RUN microdnf install -y --no-cache ruby ruby-bundler ruby-dev task && \
+    gem install --no-ri --no-rdoc taskwarrior-web && \
+    microdnf-y clean all
+
+COPY ./docker-entrypoint.sh /
+COPY ./wait-for-it.sh /
+
+# Configure container
+VOLUME ["/root/.task"]
+
+ENV CLIENT_CERT_PATH /root/.task/client
+
+ENTRYPOINT /wait-for-it.sh ${TASKD_SERVER} -- /docker-entrypoint.sh
+EXPOSE 5678
+
