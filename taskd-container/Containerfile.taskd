@@ -1,4 +1,4 @@
-FROM fedora-minimal
+FROM registry.fedoraproject.org/fedora-minimal
 RUN microdnf install -y taskd && \
     microdnf -y clean all
 
