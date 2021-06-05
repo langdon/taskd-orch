@@ -1,0 +1,44 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/langdon/taskd-orch'
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '91460465'
+  name: taskd-taskd
+  uid: d428ed7d-b9a8-4660-b58d-b83716123a24
+  creationTimestamp: '2021-06-04T20:37:12Z'
+  generation: 1
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-06-04T20:37:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+  namespace: langdon-dev
+  labels:
+    app: taskd-taskd
+    app.kubernetes.io/component: taskd-taskd
+    app.kubernetes.io/instance: taskd-taskd
+    app.kubernetes.io/part-of: taskd-orch-app
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: 'image-registry.openshift-image-registry.svc:5000/langdon-dev/taskd-taskd'
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.sandbox-m2.ll9k.p1.openshiftapps.com/langdon-dev/taskd-taskd

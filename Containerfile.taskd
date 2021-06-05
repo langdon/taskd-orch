@@ -1,5 +1,0 @@
-FROM fedora
-RUN dnf install -y taskd && \
-    dnf -y clean all
-
-CMD taskd server

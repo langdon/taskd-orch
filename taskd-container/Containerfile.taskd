@@ -1,0 +1,5 @@
+FROM fedora-minimal
+RUN microdnf install -y taskd && \
+    microdnf -y clean all
+
+CMD taskd server
