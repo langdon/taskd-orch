@@ -5,11 +5,11 @@ RUN microdnf install -y taskd && \
 COPY run.sh /app/taskd/
 
 # Set the data location
-#ARG TASKDDATA
-#ENV TASKDDATA ${TASKDDATA:-/var/taskd}
+ARG TASKDDATA
+ENV TASKDDATA ${TASKDDATA:-/var/taskd}
 
 # Configure container
-#VOLUME ["${TASKDDATA}"]
-#EXPOSE 53589
-CMD [ "echo deployed!" ]
-#ENTRYPOINT ["/app/taskd/run.sh"]
+VOLUME ["${TASKDDATA}"]
+EXPOSE 53589
+#CMD [ "echo deployed!" ]
+ENTRYPOINT ["/app/taskd/run.sh"]
