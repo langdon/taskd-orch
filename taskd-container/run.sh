@@ -41,7 +41,9 @@ echo "taskdata = ${TASKDDATA}"
 echo "dollar# = $#"
 # Exec CMD or taskd by default if nothing present
 if [ $# -gt 0 ];then
+  echo "attempting $@"
   exec "$@"
 else
+  echo "attempting taskd server --data ${TASKDDATA}"
   exec taskd server --data ${TASKDDATA}
 fi
