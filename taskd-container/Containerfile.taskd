@@ -11,5 +11,5 @@ COPY run.sh /app/taskd/
 # Configure container
 #VOLUME ["${TASKDDATA}"]
 #EXPOSE 53589
-CMD [ "echo deployed!"]
+CMD [ "echo deployed!" ]
 #ENTRYPOINT ["/app/taskd/run.sh"]
