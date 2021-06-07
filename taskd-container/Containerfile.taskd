@@ -1,5 +1,5 @@
 FROM registry.fedoraproject.org/fedora-minimal
-RUN microdnf install -y taskd && \
+RUN microdnf install -y taskd rsync tar && \
     microdnf -y clean all
 
 COPY run.sh /app/taskd/
@@ -11,5 +11,4 @@ ENV TASKDDATA ${TASKDDATA:-/var/taskd}
 # Configure container
 VOLUME ["${TASKDDATA}"]
 EXPOSE 53589
-#CMD [ "echo deployed!" ]
 ENTRYPOINT ["/app/taskd/run.sh"]
