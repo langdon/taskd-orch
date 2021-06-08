@@ -7,6 +7,7 @@ COPY run.sh /app/taskd/
 # Set the data location
 ARG TASKDDATA
 ENV TASKDDATA ${TASKDDATA:-/var/taskd}
+ENV TASKD_PKI_ROOT ${TASKD_PKI_ROOT:-/usr/share/taskd/pki}
 
 # Configure container
 VOLUME ["${TASKDDATA}"]
