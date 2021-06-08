@@ -1,5 +1,5 @@
 FROM registry.fedoraproject.org/fedora-minimal
-RUN microdnf install -y taskd rsync tar && \
+RUN microdnf install -y taskd rsync tar procps vi less which && \
     microdnf -y clean all
 
 COPY run.sh /app/taskd/
