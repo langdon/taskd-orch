@@ -6,7 +6,7 @@ echo "taskdata = ${TASKDDATA}"
 echo "printing environment with task in the name"
 env | grep -i task
 
-TASKD_PKI_ROOT=$TASKD_PKI_ROOT || "/usr/share/"
+TASKD_PKI_ROOT=$TASKD_PKI_ROOT || "/usr/share/taskd/pki"
 echo "got $TASKD_PKI_ROOT for pki root"
 
 echo "checking for taskdata"
@@ -21,7 +21,7 @@ if ! test -e ${TASKDDATA}/config; then
     taskd config --force log ${TASKDDATA}/log/taskd.log
 
     # Copy tools for certificates generation and generate it
-    cp $TASKD_PKI_ROOT/taskd/pki/generate* ${TASKDDATA}/pki
+    cp $TASKD_PKI_ROOT/generate* ${TASKDDATA}/pki
     cp $TASKD_PKI_ROOT/taskd/pki/vars ${TASKDDATA}/pki
     cd ${TASKDDATA}/pki
     ./generate
